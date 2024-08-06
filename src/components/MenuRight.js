@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, ScrollView, Animated, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import ButtonRedirection from './ButtonRedirection';
+import Button from './Button';
 
 export default function MenuRight({ navigation }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -39,6 +40,7 @@ export default function MenuRight({ navigation }) {
           <ButtonRedirection text="Voir les utilisateurs" url="User" navigation={navigation} />
           <ButtonRedirection text="Voir les Exemples de Hooks" url="HooksExample" navigation={navigation} />
           <ButtonRedirection text="Menu principal" url="Home" navigation={navigation} />
+          <Button></Button>
         </ScrollView>
       )}
     </Animated.View>

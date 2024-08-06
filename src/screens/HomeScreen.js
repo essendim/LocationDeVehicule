@@ -20,6 +20,9 @@ export default function HomeScreen({ navigation }) {
       <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('DemoMenu')}>
         <Text style={styles.buttonText}>Demo Menu</Text>
       </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('UseEffectDemo')}>
+        <Text style={styles.buttonText}>Demo de UseEffect</Text>
+      </TouchableOpacity>
     </View>
   );
 }

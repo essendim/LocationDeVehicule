@@ -13,7 +13,8 @@ export default function UserScreen({ navigation }) {
   async function fetchUsers() {
     try {
       setLoading(true);
-      setUser(await getUserApi());
+      const usersAPI = await getUserApi();
+      setUser(usersAPI);
     } catch (error) {
       console.error("Error fetching users:", error);
     } finally {
@@ -23,7 +24,17 @@ export default function UserScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
-      {loading && <ActivityIndicator size="large" color="#0000ff" />}
+          <TouchableOpacity style={styles.button} onPress={fetchUsers}>
+        <Text style={styles.buttonText}>Refresh Users</Text>
+      </TouchableOpacity>
+      {loading ? <ActivityIndicator size="large" color="#0000ff" /> : ''}
+      {
+        ()=>{
+          if (loading) {
+            <ActivityIndicator size="large" color="#0000ff" />
+          }
+        }
+      }
       <ScrollView contentContainerStyle={styles.scrollView}>
         {Array.isArray(utilisateurs) && utilisateurs.map((user, index) => (
           <View key={index} style={styles.userCard}>
@@ -34,9 +45,6 @@ export default function UserScreen({ navigation }) {
       </ScrollView>
       <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('CreateUser')}>
         <Text style={styles.buttonText}>Ajouter un Utilisateur</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={fetchUsers}>
-        <Text style={styles.buttonText}>Refresh Users</Text>
       </TouchableOpacity>
     </View>
   );
