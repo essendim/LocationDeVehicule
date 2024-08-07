@@ -32,11 +32,6 @@ export default function HomeScreen({ navigation }) {
         onPress={() => navigation.navigate("DemoMenu")}>
         <Text style={styles.buttonText}>Demo Menu</Text>
       </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate("Articles")}>
-        <Text style={styles.buttonText}>Article</Text>
-      </TouchableOpacity>
     </View>
   );
 }

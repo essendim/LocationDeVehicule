@@ -6,7 +6,7 @@ import UserScreen from "../screens/UserScreen";
 import HooksExampleScreen from "../screens/HooksExampleScreen";
 import DemoMenu from "../screens/DemoMenu";
 import CreateUserScreen from "../screens/CreateUserScreen";
-import Articles from "../screens/Articles";
+
 const Stack = createStackNavigator();
 
 export default function AppNavigator() {
@@ -37,11 +37,6 @@ export default function AppNavigator() {
           name="CreateUser"
           component={CreateUserScreen}
           options={{ title: "Créer un Utilisateur" }}
-        />
-        <Stack.Screen
-          name="Articles"
-          component={Articles}
-          options={{ title: "Articles" }}
         />
       </Stack.Navigator>
     </NavigationContainer>
