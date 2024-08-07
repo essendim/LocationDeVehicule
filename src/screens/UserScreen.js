@@ -1,6 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView, ActivityIndicator } from 'react-native';
-import { getUserApi } from '../api/userApi';
+import React, { useEffect, useState } from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  ScrollView,
+  ActivityIndicator,
+} from "react-native";
+import { getUserApi } from "../api/userApi";
 
 export default function UserScreen({ navigation }) {
   const [utilisateurs, setUser] = useState([]);
@@ -25,14 +32,17 @@ export default function UserScreen({ navigation }) {
     <View style={styles.container}>
       {loading && <ActivityIndicator size="large" color="#0000ff" />}
       <ScrollView contentContainerStyle={styles.scrollView}>
-        {Array.isArray(utilisateurs) && utilisateurs.map((user, index) => (
-          <View key={index} style={styles.userCard}>
-            <Text style={styles.userName}>{user.nom}</Text>
-            <Text style={styles.userInfo}>Other Info: {user.otherInfo}</Text>
-          </View>
-        ))}
+        {Array.isArray(utilisateurs) &&
+          utilisateurs.map((user, index) => (
+            <View key={index} style={styles.userCard}>
+              <Text style={styles.userName}>{user.nom}</Text>
+              <Text style={styles.userInfo}>Other Info: {user.otherInfo}</Text>
+            </View>
+          ))}
       </ScrollView>
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('CreateUser')}>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate("CreateUser")}>
         <Text style={styles.buttonText}>Ajouter un Utilisateur</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.button} onPress={fetchUsers}>
@@ -45,38 +55,38 @@ export default function UserScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f0f0f0',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#f0f0f0",
+    alignItems: "center",
+    justifyContent: "center",
     padding: 20,
   },
   scrollView: {
-    alignItems: 'center',
+    alignItems: "center",
     paddingVertical: 20,
   },
   userCard: {
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
     padding: 15,
     borderRadius: 5,
     marginBottom: 10,
-    width: '100%',
+    width: "100%",
   },
   userName: {
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   userInfo: {
     fontSize: 14,
-    color: '#666',
+    color: "#666",
   },
   button: {
-    backgroundColor: '#007bff',
+    backgroundColor: "#007bff",
     padding: 10,
     borderRadius: 5,
     marginVertical: 10,
   },
   buttonText: {
-    color: '#fff',
+    color: "#fff",
     fontSize: 16,
   },
 });
